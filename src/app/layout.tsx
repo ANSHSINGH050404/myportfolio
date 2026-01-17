@@ -2,9 +2,23 @@
 // Root layout with metadata and providers
 
 import type { Metadata } from "next";
+import { JetBrains_Mono, Syne } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/app/components/Navbar";
 import CustomCursor from "@/app/components/CustomCursor";
+import SmoothScroll from "@/app/components/SmoothScroll";
+
+const jetbrains = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains",
+  display: "swap",
+});
+
+const syne = Syne({
+  subsets: ["latin"],
+  variable: "--font-syne",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "ANSH SINGH — Full-Stack Engineer",
@@ -37,8 +51,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning className="scroll-smooth">
-      <body suppressHydrationWarning className="bg-charcoal text-white">
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${jetbrains.variable} ${syne.variable} scroll-smooth`}
+    >
+      <body
+        suppressHydrationWarning
+        className="bg-charcoal text-white font-mono antialiased"
+      >
+        <SmoothScroll />
         <CustomCursor />
         <Navbar />
         {children}

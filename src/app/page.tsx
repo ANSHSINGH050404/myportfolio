@@ -6,7 +6,6 @@ import GitHubStats from "@/app/components/GitHubStats";
 import Projects from "@/app/components/Projects";
 import Philosophy from "@/app/components/Philosophy";
 import Contact from "@/app/components/Contact";
-import SmoothScroll from "@/app/components/SmoothScroll";
 import PageTransition from "@/app/components/PageTransition";
 import ScrollToTop from "@/app/components/ScrollToTop";
 import {
@@ -57,7 +56,6 @@ export default async function Home() {
   return (
     <>
       <ScrollProgress />
-      <SmoothScroll />
       <PageTransition>
         <main className="relative bg-[#050505] overflow-hidden">
           {/* Ambient background effects */}

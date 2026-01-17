@@ -107,9 +107,11 @@ export default function CommitFlowField({
         // Mouse repulsion
         const dx = particle.x - mouseX;
         const dy = particle.y - mouseY;
-        const dist = Math.sqrt(dx * dx + dy * dy);
+        const distSq = dx * dx + dy * dy;
 
-        if (dist < 100) {
+        if (distSq < 10000) {
+          // 100 * 100
+          const dist = Math.sqrt(distSq);
           const force = (100 - dist) / 100;
           particle.x += (dx / dist) * force * 2;
           particle.y += (dy / dist) * force * 2;
@@ -127,9 +129,10 @@ export default function CommitFlowField({
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
           const dy = particles[i].y - particles[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
+          const distSq = dx * dx + dy * dy;
 
-          if (dist < 100) {
+          if (distSq < 10000) {
+            // 100 * 100
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);

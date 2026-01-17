@@ -5,11 +5,12 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 
 const navItems = [
-  { name: "Start", href: "#" },
-  { name: "Stats", href: "#stats" },
-  { name: "Projects", href: "#projects" },
-  { name: "Identity", href: "#philosophy" },
-  { name: "Connect", href: "#contact" },
+  { name: "Start", href: "/" },
+  { name: "Blog", href: "/blog" },
+  { name: "Stats", href: "/#stats" },
+  { name: "Projects", href: "/#projects" },
+  { name: "Identity", href: "/#philosophy" },
+  { name: "Connect", href: "/#contact" },
 ];
 
 export default function Navbar() {
