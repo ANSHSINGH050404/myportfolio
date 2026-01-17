@@ -2,12 +2,13 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { supabase } from "@/app/lib/supabase";
+import { createPostAction } from "@/app/lib/actions";
 import AnimatedContainer from "@/app/components/AnimatedContainer";
 
 export default function CreatePostPage() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+  const [password, setPassword] = useState("");
   const [formData, setFormData] = useState({
     title: "",
     slug: "",
@@ -21,19 +22,10 @@ export default function CreatePostPage() {
     e.preventDefault();
     setLoading(true);
 
-    const postData = {
-      ...formData,
-      tags: formData.tags
-        .split(",")
-        .map((tag) => tag.trim())
-        .filter(Boolean),
-      published_at: new Date().toISOString(),
-    };
+    const result = await createPostAction(formData, password);
 
-    const { error } = await supabase.from("posts").insert([postData]);
-
-    if (error) {
-      alert("Error creating post: " + error.message);
+    if (result.error) {
+      alert("Error: " + result.error);
       setLoading(false);
     } else {
       router.push("/blog");
@@ -156,6 +148,20 @@ export default function CreatePostPage() {
                 className="w-full bg-charcoal-light/10 border border-charcoal-lighter/20 rounded-lg px-4 py-3 text-white focus:border-gh-green/50 focus:outline-none transition-colors"
               />
             </div>
+          </div>
+
+          <div>
+            <label className="block text-sm font-mono text-gray-400 mb-2">
+              Admin Password
+            </label>
+            <input
+              required
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full bg-charcoal-light/10 border border-charcoal-lighter/20 rounded-lg px-4 py-3 text-white focus:border-gh-green/50 focus:outline-none transition-colors"
+              placeholder="••••••••"
+            />
           </div>
 
           <button
