@@ -124,11 +124,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
       <div className="relative z-10">
         {/* Back to Blog */}
-        <AnimatedContainer className="pt-32 pb-8 px-6">
+        <AnimatedContainer className="pt-24 md:pt-32 pb-6 md:pb-8 px-4 md:px-6">
           <div className="max-w-4xl mx-auto">
             <Link
               href="/blog"
-              className="inline-flex items-center gap-2 text-gray-400 hover:text-gh-green transition-colors duration-300"
+              className="inline-flex items-center gap-2 text-gray-400 hover:text-gh-green transition-colors duration-300 text-sm"
             >
               <svg
                 className="w-4 h-4"
@@ -149,14 +149,18 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         </AnimatedContainer>
 
         {/* Article Header */}
-        <AnimatedContainer as="article" delay={0.2} className="px-6 pb-16">
+        <AnimatedContainer
+          as="article"
+          delay={0.2}
+          className="px-4 md:px-6 pb-12 md:pb-16"
+        >
           <div className="max-w-4xl mx-auto">
             {/* Tags */}
             <div className="flex flex-wrap gap-2 mb-6">
               {post.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="px-3 py-1 text-xs font-mono bg-gh-green/10 text-gh-green rounded-full border border-gh-green/20"
+                  className="px-3 py-1 text-[10px] md:text-xs font-mono bg-gh-green/10 text-gh-green rounded-full border border-gh-green/20"
                 >
                   {tag}
                 </span>
@@ -164,7 +168,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             </div>
 
             {/* Title */}
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+            <h1 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
               {post.title}
             </h1>
 

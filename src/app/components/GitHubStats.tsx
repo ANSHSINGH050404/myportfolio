@@ -1,10 +1,10 @@
 // components/GitHubStats.tsx
 // GitHub intelligence section with live data and animated counters
 
-'use client';
+"use client";
 
-import { useEffect, useRef, useState } from 'react';
-import { motion, useInView, useMotionValue, useSpring } from 'framer-motion';
+import { useEffect, useRef, useState } from "react";
+import { motion, useInView, useMotionValue, useSpring } from "framer-motion";
 
 interface Stat {
   label: string;
@@ -23,7 +23,13 @@ interface GitHubStatsProps {
   topLanguages: { [key: string]: number };
 }
 
-function AnimatedCounter({ value, duration = 2 }: { value: number; duration?: number }) {
+function AnimatedCounter({
+  value,
+  duration = 2,
+}: {
+  value: number;
+  duration?: number;
+}) {
   const ref = useRef<HTMLSpanElement>(null);
   const motionValue = useMotionValue(0);
   const springValue = useSpring(motionValue, {
@@ -39,7 +45,7 @@ function AnimatedCounter({ value, duration = 2 }: { value: number; duration?: nu
   }, [isInView, motionValue, value]);
 
   useEffect(() => {
-    const unsubscribe = springValue.on('change', (latest) => {
+    const unsubscribe = springValue.on("change", (latest) => {
       if (ref.current) {
         ref.current.textContent = Math.floor(latest).toLocaleString();
       }
@@ -63,7 +69,7 @@ function StatCard({ stat, delay }: { stat: Stat; delay: number }) {
     >
       {/* Subtle glow on hover */}
       <div className="absolute inset-0 rounded-lg bg-gh-green/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-      
+
       <div className="relative">
         <div className="mono-stat text-5xl md:text-6xl text-white mb-3">
           {stat.prefix}
@@ -78,9 +84,14 @@ function StatCard({ stat, delay }: { stat: Stat; delay: number }) {
   );
 }
 
-function LanguageBar({ language, count, total, delay }: { 
-  language: string; 
-  count: number; 
+function LanguageBar({
+  language,
+  count,
+  total,
+  delay,
+}: {
+  language: string;
+  count: number;
   total: number;
   delay: number;
 }) {
@@ -104,7 +115,11 @@ function LanguageBar({ language, count, total, delay }: {
           initial={{ width: 0 }}
           whileInView={{ width: `${percentage}%` }}
           viewport={{ once: true }}
-          transition={{ duration: 1, delay: delay + 0.2, ease: [0.4, 0, 0.2, 1] }}
+          transition={{
+            duration: 1,
+            delay: delay + 0.2,
+            ease: [0.4, 0, 0.2, 1],
+          }}
         />
       </div>
     </motion.div>
@@ -113,35 +128,39 @@ function LanguageBar({ language, count, total, delay }: {
 
 export default function GitHubStats({ stats, topLanguages }: GitHubStatsProps) {
   const statsData: Stat[] = [
-    { label: 'Total Commits', value: stats.totalCommits, suffix: '+' },
-    { label: 'Stars Earned', value: stats.totalStars, prefix: '★' },
-    { label: 'Active Repos', value: stats.activeRepos },
-    { label: 'Years Contributing', value: stats.contributionYears },
+    { label: "Total Commits", value: stats.totalCommits, suffix: "+" },
+    { label: "Stars Earned", value: stats.totalStars, prefix: "★" },
+    { label: "Active Repos", value: stats.activeRepos },
+    { label: "Years Contributing", value: stats.contributionYears },
   ];
 
   const totalRepos = Object.values(topLanguages).reduce((a, b) => a + b, 0);
 
   return (
-    <section className="relative py-32 px-6 bg-deep-charcoal">
+    <section
+      id="stats"
+      className="relative py-20 md:py-32 px-4 md:px-6 bg-deep-charcoal overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto">
         {/* Section header */}
         <motion.div
-          className="mb-16"
+          className="mb-12 md:mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="heading-lg text-white mb-4">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
             GitHub Intelligence
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl">
-            Live metrics from my GitHub activity, showcasing contributions, languages, and code patterns.
+          <p className="text-gray-400 text-base md:text-lg max-w-2xl">
+            Live metrics from my GitHub activity, showcasing contributions,
+            languages, and code patterns.
           </p>
         </motion.div>
 
         {/* Stats grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-16 md:mb-20">
           {statsData.map((stat, index) => (
             <StatCard key={stat.label} stat={stat} delay={index * 0.1} />
           ))}
@@ -155,8 +174,10 @@ export default function GitHubStats({ stats, topLanguages }: GitHubStatsProps) {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <h3 className="heading-md text-white mb-8">Top Languages</h3>
-          <div>
+          <h3 className="text-2xl md:text-4xl font-bold text-white mb-8">
+            Top Languages
+          </h3>
+          <div className="space-y-2">
             {Object.entries(topLanguages).map(([language, count], index) => (
               <LanguageBar
                 key={language}

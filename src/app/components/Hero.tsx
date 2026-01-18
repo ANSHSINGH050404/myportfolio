@@ -45,7 +45,7 @@ export default function Hero({ contributionData }: HeroProps) {
         >
           <div className="overflow-hidden mb-4">
             <motion.p
-              className="text-gh-green font-mono text-sm tracking-[0.3em] uppercase"
+              className="text-gh-green font-mono text-xs md:text-sm tracking-[0.3em] uppercase"
               initial={{ y: "100%" }}
               animate={{ y: 0 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
@@ -56,12 +56,12 @@ export default function Hero({ contributionData }: HeroProps) {
 
           <div className="overflow-hidden mb-6">
             <motion.h1
-              className="heading-xl text-white leading-tight"
+              className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white leading-tight"
               initial={{ y: "100%" }}
               animate={{ y: 0 }}
               transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             >
-              ANSH <span className="text-white/20">SINGH</span>
+              ANSH <span className="text-white/30 md:text-white/20">SINGH</span>
             </motion.h1>
           </div>
 
@@ -70,28 +70,28 @@ export default function Hero({ contributionData }: HeroProps) {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           >
-            <p className="text-2xl md:text-3xl text-gray-400 font-light mb-8 max-w-3xl mx-auto">
-              Creating <span className="text-white">scalable</span> digital
-              architectures with a focus on{" "}
-              <span className="text-white">performance</span> and{" "}
-              <span className="text-white">user intent</span>.
+            <p className="text-lg md:text-2xl lg:text-3xl text-gray-400 font-light mb-10 max-w-3xl mx-auto leading-relaxed">
+              Creating <span className="text-white font-medium">scalable</span>{" "}
+              digital architectures with a focus on{" "}
+              <span className="text-white font-medium">performance</span> and{" "}
+              <span className="text-white font-medium">user intent</span>.
             </p>
 
-            <div className="flex flex-col md:flex-row items-center justify-center gap-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 px-4">
               <motion.a
                 href="#projects"
-                className="btn-primary group relative overflow-hidden"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                className="btn-primary w-full sm:w-auto group relative overflow-hidden text-center"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
                 <span className="relative z-10">Explore Projects</span>
                 <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
               </motion.a>
               <motion.a
                 href="#contact"
-                className="btn-secondary"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                className="btn-secondary w-full sm:w-auto text-center"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
                 Get in Touch
               </motion.a>
