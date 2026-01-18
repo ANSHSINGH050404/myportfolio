@@ -7,7 +7,10 @@ import { motion } from "framer-motion";
 
 export default function Contact() {
   return (
-    <section className="relative py-32 px-6 bg-[#0a0a0a] overflow-hidden">
+    <section
+      id="contact"
+      className="relative py-20 md:py-32 px-4 md:px-6 bg-[#0a0a0a] overflow-hidden"
+    >
       {/* Background Glow */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-96 bg-gh-green/10 blur-[120px] rounded-full pointer-events-none" />
 
@@ -18,24 +21,24 @@ export default function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <div className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8">
-            <span className="text-gray-400 text-xs font-mono tracking-widest uppercase">
+          <div className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-6 md:mb-8">
+            <span className="text-gray-400 text-[10px] md:text-xs font-mono tracking-widest uppercase">
               Available for collaborations
             </span>
           </div>
 
-          <h2 className="text-6xl md:text-8xl font-bold text-white mb-8 tracking-tighter">
+          <h2 className="text-5xl md:text-8xl font-bold text-white mb-6 md:mb-8 tracking-tighter">
             LET'S <span className="text-gh-green">SYNC</span>.
           </h2>
 
-          <p className="text-gray-400 text-xl md:text-2xl mb-12 max-w-2xl mx-auto font-light leading-relaxed">
+          <p className="text-gray-400 text-lg md:text-2xl mb-10 md:mb-12 max-w-2xl mx-auto font-light leading-relaxed">
             I'm always looking for ambitious projects where I can apply my
             architectural thinking.
           </p>
         </motion.div>
 
         <motion.div
-          className="flex flex-col sm:flex-row items-center justify-center gap-8 mb-24"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-8 mb-16 md:mb-24 px-4"
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
@@ -43,13 +46,13 @@ export default function Contact() {
         >
           <motion.a
             href="mailto:anshsinghapa@gmail.com"
-            className="group relative px-12 py-6 bg-gh-green text-black font-bold text-lg rounded-full overflow-hidden transition-all duration-500 hover:shadow-[0_0_40px_rgba(46,160,67,0.4)]"
+            className="w-full sm:w-auto group relative px-8 md:px-12 py-4 md:py-6 bg-gh-green text-black font-bold text-base md:text-lg rounded-full overflow-hidden transition-all duration-500 hover:shadow-[0_0_40px_rgba(46,160,67,0.4)] flex justify-center"
             whileHover={{ y: -5, scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
             <span className="relative z-10 flex items-center gap-3">
               <svg
-                className="w-6 h-6"
+                className="w-5 h-5 md:w-6 md:h-6"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -67,10 +70,10 @@ export default function Contact() {
           </motion.a>
 
           <motion.a
-            href="https://github.com/ANSHSINGH050404"
+            href="https://github.com/anshsng"
             target="_blank"
             rel="noopener noreferrer"
-            className="group px-12 py-6 border border-white/20 text-white font-bold text-lg rounded-full hover:bg-white hover:text-black transition-all duration-500"
+            className="w-full sm:w-auto group px-8 md:px-12 py-4 md:py-6 border border-white/20 text-white font-bold text-base md:text-lg rounded-full hover:bg-white hover:text-black transition-all duration-500 text-center"
             whileHover={{ y: -5, scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
@@ -79,49 +82,56 @@ export default function Contact() {
         </motion.div>
 
         {/* Dynamic Footer Info */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 pt-24 border-t border-white/5 text-left items-start">
-          <div>
-            <span className="block text-gh-green font-mono text-xs uppercase tracking-widest mb-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 pt-16 md:pt-24 border-t border-white/5 text-left items-start">
+          <div className="text-center md:text-left">
+            <span className="block text-gh-green font-mono text-[10px] md:text-xs uppercase tracking-widest mb-3 md:mb-4">
               Location
             </span>
-            <p className="text-gray-300 text-lg">Remote / Worldwide</p>
+            <p className="text-gray-300 text-base md:text-lg">
+              Remote / Worldwide
+            </p>
           </div>
-          <div>
-            <span className="block text-gh-green font-mono text-xs uppercase tracking-widest mb-4">
+          <div className="text-center md:text-left">
+            <span className="block text-gh-green font-mono text-[10px] md:text-xs uppercase tracking-widest mb-3 md:mb-4">
               Social Architecture
             </span>
-            <div className="flex gap-6">
+            <div className="flex justify-center md:justify-start gap-6 text-sm md:text-base">
               <a
-                href="#"
+                href="https://x.com"
                 className="text-gray-400 hover:text-white transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 Twitter
               </a>
               <a
-                href="#"
+                href="https://linkedin.com"
                 className="text-gray-400 hover:text-white transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 LinkedIn
               </a>
               <a
-                href="#"
+                href="https://github.com/anshsng"
                 className="text-gray-400 hover:text-white transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                Dribbble
+                GitHub
               </a>
             </div>
           </div>
-          <div className="text-right hidden md:block">
-            <span className="block text-gh-green font-mono text-xs uppercase tracking-widest mb-4">
-              Time
+          <div className="text-center md:text-right">
+            <span className="block text-gh-green font-mono text-[10px] md:text-xs uppercase tracking-widest mb-3 md:mb-4">
+              Local Time
             </span>
-            <p className="text-gray-300 text-lg font-mono uppercase">
+            <p className="text-gray-300 text-base md:text-lg font-mono uppercase">
               {new Date().toLocaleTimeString([], {
                 hour: "2-digit",
                 minute: "2-digit",
                 hour12: true,
-              })}{" "}
-              Local Time
+              })}
             </p>
           </div>
         </div>

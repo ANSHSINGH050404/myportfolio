@@ -42,9 +42,9 @@ export default async function BlogPage() {
 
       <div className="relative z-10">
         {/* Header */}
-        <AnimatedContainer className="pt-32 pb-16 px-6">
+        <AnimatedContainer className="pt-24 md:pt-32 pb-12 md:pb-16 px-4 md:px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
               Blog
             </h1>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-8">

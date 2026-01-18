@@ -63,14 +63,17 @@ function PrincipleCard({
 
 export default function Philosophy() {
   return (
-    <section className="relative py-32 px-6 overflow-hidden bg-[#050505]">
+    <section
+      id="philosophy"
+      className="relative py-20 md:py-32 px-4 md:px-6 overflow-hidden bg-[#050505]"
+    >
       {/* Background Text Accent */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[20vw] font-black text-white/[0.01] pointer-events-none select-none whitespace-nowrap uppercase">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[25vw] md:text-[20vw] font-black text-white/[0.01] pointer-events-none select-none whitespace-nowrap uppercase hidden sm:block">
         Philosophy
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center">
           {/* Left: Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -79,22 +82,22 @@ export default function Philosophy() {
             transition={{ duration: 0.8 }}
           >
             <div className="inline-block px-4 py-1.5 rounded-full bg-gh-green/10 border border-gh-green/20 mb-6">
-              <span className="text-gh-green text-xs font-mono font-bold tracking-widest uppercase">
+              <span className="text-gh-green text-[10px] md:text-xs font-mono font-bold tracking-widest uppercase">
                 Ethos & Guiding Principles
               </span>
             </div>
 
-            <h2 className="text-5xl md:text-7xl font-bold text-white mb-8 tracking-tight">
+            <h2 className="text-4xl md:text-7xl font-bold text-white mb-6 md:mb-8 tracking-tight">
               Crafting <span className="text-gh-green">Digital</span> Integrity.
             </h2>
 
-            <p className="text-gray-400 text-xl leading-relaxed mb-12 max-w-xl">
+            <p className="text-gray-400 text-lg md:text-xl leading-relaxed mb-8 md:mb-12 max-w-xl">
               Engineering is not just about writing code; it's about making
               choices that balance speed, reliability, and human understanding.
             </p>
 
-            <div className="p-8 border-l-4 border-gh-green bg-gh-green/5 rounded-r-2xl">
-              <blockquote className="text-2xl text-gray-200 font-light italic">
+            <div className="p-6 md:p-8 border-l-4 border-gh-green bg-gh-green/5 rounded-r-2xl">
+              <blockquote className="text-xl md:text-2xl text-gray-200 font-light italic">
                 "Make it work, make it right, make it fast—in that order."
               </blockquote>
               <cite className="block mt-4 text-gh-green font-mono text-sm not-italic">
@@ -104,7 +107,7 @@ export default function Philosophy() {
           </motion.div>
 
           {/* Right: Principle Grid */}
-          <div className="grid grid-cols-1 gap-6">
+          <div className="grid grid-cols-1 gap-4 md:gap-6 mt-12 lg:mt-0">
             {principles.map((principle, index) => (
               <PrincipleCard
                 key={principle.title}

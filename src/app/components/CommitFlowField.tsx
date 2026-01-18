@@ -34,7 +34,13 @@ export default function CommitFlowField({
 
     // Calculate particle count based on contribution data
     const totalContributions = contributionData.reduce((a, b) => a + b, 0);
-    const particleCount = Math.min(800, Math.max(200, totalContributions * 2));
+    const isMobile = window.innerWidth < 768;
+    const maxParticles = isMobile ? 300 : 800;
+    const minParticles = isMobile ? 100 : 200;
+    const particleCount = Math.min(
+      maxParticles,
+      Math.max(minParticles, totalContributions * 2),
+    );
 
     // Particle class
     class Particle {

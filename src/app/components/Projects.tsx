@@ -62,13 +62,19 @@ function ProjectCard({ repo, index }: { repo: GitHubRepo; index: number }) {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={handleMouseLeave}
         style={{
-          rotateX,
-          rotateY,
+          rotateX:
+            typeof window !== "undefined" && window.innerWidth < 768
+              ? 0
+              : rotateX,
+          rotateY:
+            typeof window !== "undefined" && window.innerWidth < 768
+              ? 0
+              : rotateY,
           transformStyle: "preserve-3d",
         }}
       >
         {/* Card container with glass morphism */}
-        <div className="relative h-full p-8 bg-gradient-to-br from-charcoal-lighter/20 to-charcoal-lighter/5 backdrop-blur-xl border border-charcoal-lighter/30 rounded-3xl overflow-hidden transition-all duration-500 ease-out group-hover:border-gh-green/30 group-hover:shadow-2xl group-hover:shadow-gh-green/5">
+        <div className="relative h-full p-6 md:p-8 bg-gradient-to-br from-charcoal-lighter/20 to-charcoal-lighter/5 backdrop-blur-xl border border-charcoal-lighter/30 rounded-3xl overflow-hidden transition-all duration-500 ease-out group-hover:border-gh-green/30 group-hover:shadow-2xl group-hover:shadow-gh-green/5">
           {/* Animated background glow */}
           <div className="absolute inset-0 bg-gradient-to-br from-gh-green/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
@@ -166,7 +172,10 @@ function ProjectCard({ repo, index }: { repo: GitHubRepo; index: number }) {
 
 export default function Projects({ repos }: ProjectsProps) {
   return (
-    <section className="relative py-32 px-6 bg-charcoal overflow-hidden">
+    <section
+      id="projects"
+      className="relative py-20 md:py-32 px-4 md:px-6 bg-charcoal overflow-hidden"
+    >
       {/* Animated background grid */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
         <div
@@ -204,7 +213,7 @@ export default function Projects({ repos }: ProjectsProps) {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section header with reveal animation */}
         <motion.div
-          className="mb-20"
+          className="mb-12 md:mb-20"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
@@ -217,13 +226,13 @@ export default function Projects({ repos }: ProjectsProps) {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <span className="text-gh-green text-sm font-mono font-medium tracking-wide">
+            <span className="text-gh-green text-xs md:text-sm font-mono font-medium tracking-wide">
               OPEN SOURCE
             </span>
           </motion.div>
 
           <motion.h2
-            className="text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight"
+            className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -233,7 +242,7 @@ export default function Projects({ repos }: ProjectsProps) {
           </motion.h2>
 
           <motion.p
-            className="text-gray-400 text-lg md:text-xl max-w-2xl leading-relaxed"
+            className="text-gray-400 text-base md:text-xl max-w-2xl leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -245,7 +254,7 @@ export default function Projects({ repos }: ProjectsProps) {
         </motion.div>
 
         {/* Projects grid with bento-style layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[300px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:auto-rows-[300px]">
           {repos.map((repo, index) => {
             const isLarge = index === 0 || index === 5;
             const isWide = index === 2 || index === 3;
@@ -257,9 +266,9 @@ export default function Projects({ repos }: ProjectsProps) {
                   isLarge
                     ? "lg:col-span-2 lg:row-span-2"
                     : isWide
-                    ? "lg:col-span-2"
-                    : ""
-                }`}
+                      ? "lg:col-span-2"
+                      : ""
+                } min-h-[350px] md:min-h-0`}
               >
                 <ProjectCard repo={repo} index={index} />
               </div>
@@ -269,17 +278,17 @@ export default function Projects({ repos }: ProjectsProps) {
 
         {/* Bottom CTA */}
         <motion.div
-          className="mt-20 text-center"
+          className="mt-16 md:mt-20 text-center"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
           <motion.a
-            href="https://github.com"
+            href="https://github.com/anshsng"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-charcoal-lighter/50 backdrop-blur-sm border border-charcoal-lighter rounded-full text-gray-300 font-medium hover:border-gh-green hover:text-gh-green hover:bg-gh-green/5 transition-all duration-300 group"
+            className="inline-flex items-center gap-3 px-6 md:px-8 py-3 md:py-4 bg-charcoal-lighter/50 backdrop-blur-sm border border-charcoal-lighter rounded-full text-gray-300 font-medium hover:border-gh-green hover:text-gh-green hover:bg-gh-green/5 transition-all duration-300 group text-sm md:text-base"
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.98 }}
           >
