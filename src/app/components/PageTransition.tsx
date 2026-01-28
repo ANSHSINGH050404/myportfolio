@@ -18,7 +18,7 @@ export default function PageTransition({ children }: PageTransitionProps) {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{
-          duration: 0.6,
+          duration: 0.3,
           ease: [0.25, 0.4, 0.25, 1],
         }}
       >

@@ -6,7 +6,7 @@ import { JetBrains_Mono, Syne } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/app/components/Navbar";
 import CustomCursor from "@/app/components/CustomCursor";
-import SmoothScroll from "@/app/components/SmoothScroll";
+// import SmoothScroll from "@/app/components/SmoothScroll";
 
 const jetbrains = JetBrains_Mono({
   subsets: ["latin"],
@@ -54,13 +54,13 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${jetbrains.variable} ${syne.variable} scroll-smooth`}
+      className={`${jetbrains.variable} ${syne.variable}`}
     >
       <body
         suppressHydrationWarning
         className="bg-charcoal text-white font-mono antialiased"
       >
-        <SmoothScroll />
+        {/* <SmoothScroll /> */}
         <CustomCursor />
         <Navbar />
         {children}

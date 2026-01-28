@@ -26,7 +26,7 @@ export default function AnimatedContainer({
     <MotionComponent
       initial={{ opacity: 0, y: initialY }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration, delay, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration, delay, ease: [0.25, 0.4, 0.25, 1] }}
       className={className}
     >
       {children}

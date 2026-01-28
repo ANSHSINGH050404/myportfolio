@@ -21,8 +21,7 @@ const nextConfig: NextConfig = {
     optimizeCss: true,
     optimizePackageImports: [
       "framer-motion",
-      "@react-three/fiber",
-      "@react-three/drei",
+      "react-icons",
     ],
   },
 

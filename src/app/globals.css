@@ -128,13 +128,17 @@
 
 /* Component utilities */
 @layer components {
-  /* Smooth transitions */
+/* Smooth transitions */
   .transition-smooth {
-    transition: all 0.3s cubic-bezier(0.25, 0.4, 0.25, 1);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .transition-slow {
-    transition: all 0.6s cubic-bezier(0.25, 0.4, 0.25, 1);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .transition-ultra-smooth {
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   }
 
   /* Glass morphism effect */
@@ -191,17 +195,19 @@
     animation: gradientShift 15s ease infinite;
   }
 
-  /* Button styles */
+/* Button styles */
   .btn-primary {
     @apply px-8 py-4 bg-gh-green text-black rounded-full font-bold text-lg;
     @apply hover:bg-white hover:text-black hover:shadow-[0_0_30px_rgba(46,160,67,0.3)];
-    @apply active:scale-95 transition-all duration-500 ease-out;
+    @apply active:scale-95 transition-all duration-300;
+    transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
   }
 
   .btn-secondary {
     @apply px-8 py-4 bg-transparent text-white rounded-full font-bold text-lg border border-white/20;
     @apply hover:bg-white hover:text-black hover:border-white;
-    @apply active:scale-95 transition-all duration-500 ease-out;
+    @apply active:scale-95 transition-all duration-300;
+    transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
   }
 
   /* Card styles */
@@ -393,16 +399,24 @@
     transform-style: preserve-3d;
   }
 
-  /* Hover lift effect */
+/* Hover lift effect */
   .hover-lift {
-    transition: transform 0.3s cubic-bezier(0.25, 0.4, 0.25, 1);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .hover-lift:hover {
     transform: translateY(-8px);
   }
 
-  /* Smooth underline effect */
+  .hover-lift-smooth {
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .hover-lift-smooth:hover {
+    transform: translateY(-6px);
+  }
+
+/* Smooth underline effect */
   .underline-animate {
     position: relative;
   }
@@ -415,7 +429,7 @@
     width: 0;
     height: 2px;
     background-color: var(--color-gh-green);
-    transition: width 0.3s ease;
+    transition: width 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   }
 
   .underline-animate:hover::after {
