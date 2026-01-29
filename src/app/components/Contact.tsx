@@ -113,7 +113,7 @@ export default function Contact() {
                 LinkedIn
               </a>
               <a
-                href="https://github.com/anshsng"
+                href="https://github.com/ANSHSINGH050404"
                 className="text-gray-400 hover:text-white transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
