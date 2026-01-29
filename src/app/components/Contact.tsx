@@ -70,7 +70,7 @@ export default function Contact() {
           </motion.a>
 
           <motion.a
-            href="https://github.com/anshsng"
+            href="https://github.com/ANSHSINGH050404"
             target="_blank"
             rel="noopener noreferrer"
             className="w-full sm:w-auto group px-8 md:px-12 py-4 md:py-6 border border-white/20 text-white font-bold text-base md:text-lg rounded-full hover:bg-white hover:text-black transition-all duration-500 text-center"
