@@ -105,7 +105,7 @@ export default function Contact() {
                 Twitter
               </a>
               <a
-                href="https://linkedin.com"
+                href="linkedin.com/in/ansh-singh-b56612241"
                 className="text-gray-400 hover:text-white transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
