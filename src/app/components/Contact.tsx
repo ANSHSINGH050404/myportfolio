@@ -97,7 +97,7 @@ export default function Contact() {
             </span>
             <div className="flex justify-center md:justify-start gap-6 text-sm md:text-base">
               <a
-                href="https://x.com"
+                href="https://x.com/AnshSin18258375"
                 className="text-gray-400 hover:text-white transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
